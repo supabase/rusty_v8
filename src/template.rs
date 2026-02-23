@@ -1016,9 +1016,7 @@ impl ObjectTemplate {
     unsafe {
       let getter = getter.map_or_else(std::ptr::null, |v| &*v);
       let setter = setter.map_or_else(std::ptr::null, |v| &*v);
-      v8__ObjectTemplate__SetAccessorProperty(
-        self, &*key, &*getter, &*setter, attr,
-      )
+      v8__ObjectTemplate__SetAccessorProperty(self, &*key, getter, setter, attr)
     }
   }
 
